@@ -35,9 +35,14 @@ class PlotViews(Resource):
 	for label, point in request.json.items():
 	    try:
 	        plot_points = PlotPoints.objects.get({"device_plot": device_plot.pk, "label": label})
+		'''Ideally, this append would be above plot_point.save (below), but pyodm ends up
+		treating ".points" as a class attribute, as opposed to an instance property and
+		would add incrementally add more and more data with each iteration'''
+            	plot_points.points.append(point)
 	    except PlotPoints.DoesNotExist:
-	        plot_points = PlotPoints(device_plot=device_plot, label=label)
-            plot_points.points += point
+	        #plot_points = PlotPoints(device_plot=device_plot, label=label)
+	        plot_points = PlotPoints(device_plot=device_plot, label=label, points=[point])
+            #plot_points.points.append(point)
 	    plot_points.save()
         return '', 201
 

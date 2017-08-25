@@ -18,4 +18,4 @@ class DevicePlot(pymodm.MongoModel):
 class PlotPoints(pymodm.MongoModel):
     device_plot = pymodm.fields.ReferenceField(DevicePlot)
     label = pymodm.fields.CharField()
-    points = pymodm.fields.ListField()
+    points = pymodm.fields.ListField(default=[])
