@@ -31,6 +31,7 @@ class PlotViews(Resource):
 	return {
 	    "device_name": device_plot.device_name,
 	    "plot_title": device_plot.plot_title,
+	    "slug": device_plot.slug,
 	    "points": {point.label: point.points for point in points}
 	}
 
