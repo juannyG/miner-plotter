@@ -23,5 +23,5 @@ class PlotPoints(pymodm.MongoModel):
     def save(self, *args, **kwargs):
         # TODO: configurable setting...
 	if len(self.points) >= 30:
-	    self.points = self.points[30:]
+	    self.points = self.points[-30:]
 	super(PlotPoints, self).save(*args, **kwargs)
