@@ -3,9 +3,9 @@ var options, graph_data, chart, data_src;
 function success_fn(data, textStatus, jqXHR) {
     graph_data = [];
 
-    for (label in data) {
+    for (label in data.points) {
         graph_data.push({
-            data: data[label],
+            data: data.points[label],
             label: label,
             lines: {show: true}
          });

@@ -28,7 +28,11 @@ class PlotViews(Resource):
     @prime_device_plot
     def get(self, device_plot=None, *args, **kwargs):
         points = PlotPoints.objects.raw({"device_plot": device_plot.pk})
-	return {point.label: point.points for point in points}
+	return {
+	    "device_name": device_plot.device_name,
+	    "plot_title": device_plot.plot_title,
+	    "points": {point.label: point.points for point in points}
+	}
 
     @prime_device_plot
     def post(self, device_plot=None, *args, **kwargs):
