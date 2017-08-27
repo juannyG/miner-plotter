@@ -50,7 +50,7 @@ function success_fn(data, textStatus, jqXHR) {
 }
 
 $(document).ready(function(){
-    var devices = ["odroid-xu4"];
+    var devices = ["odroid-xu4", "dell-inspiron-desktop"];
     for (var i=0; i < devices.length; ++i) {
         $.get("http://ec2-34-229-148-32.compute-1.amazonaws.com/plot/"+ devices[i], success_fn);
     }
