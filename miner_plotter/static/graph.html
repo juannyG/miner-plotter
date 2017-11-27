@@ -1,13 +1,42 @@
 <html>
     <head>
         <title>Miner Graphs</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.time.min.js" ></script>
-        <script src="/static/graph.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="/static/graph.css"></link>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+
+        <!-- ChartJS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+        <!-- jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Page -->
+        <script src="/static/main.js"></script>
+
+        <!-- JQuery template -->
+        <script id="graph-template" type="text/x-custom-template">
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body" id="{{graphId}}">
+                <ul uk-accordion>
+                    <!-- Graph -->
+                    <li class="uk-open">
+                        <h3 class="uk-accordion-title" id="title">{{graphTitle}}</h3>
+                        <div class="uk-accordion-content">
+                            <canvas id="{{graphCanvasId}}"></canvas>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br/>
+        </script>
+
     </head>
-    <body></body>
+    <body>
+        <div class="uk-container"></div>
+    </body>
 </html>
 
